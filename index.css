@@ -515,8 +515,8 @@
   
   #ambassador .row .col img {
     width: 10rem;
-    margin-left: 4rem;
-    margin-right: 1.9rem;
+    margin-left: 0rem;
+    margin-right: 1rem;
     border-radius: 50%;
   }
   
