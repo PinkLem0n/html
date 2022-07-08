@@ -781,7 +781,7 @@
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 12px;
   padding: 20px;
   width: 100%;
   transition: all 0.5s;
@@ -817,6 +817,7 @@ position: absolute;
 .returnHP {
   position: absolute;
   right: 10%;
+  margin: 10px;
 }
 
 
