@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>著名景点</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/fa79f509a7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <section id="scenery">
+        <h1>著名景点</h1>
+        <p>太美丽啦理塘</p>
+        <div class="row">
+            <div class="col">
+                <img src="./images/genie.webp" alt="genie" onclick="showFullImage(event)">
+                <h3>格聂神山</h3>
+                <p>格聂神山位于四川四川甘孜州理塘县西南部、巴塘县东部。它的藏语名为呷玛日巴，是我国藏传佛教24座神山中的第13座女神，也是胜乐金刚的八大金刚妙语圣地之一，在藏地，胜乐金刚的圣地只有喜马拉雅山和格聂圣山。</p>            
+            </div>
+            <div class="col">
+                <img src="./images/cqckes.webp" alt="cqckes" onclick="showFullImage(event)">
+                <h3>长青春科尔寺</h3>
+                <p>长青春科尔寺又称理塘寺，于1580年由第三世达赖喇嘛索南嘉措创建，是康区历史最悠久，规模最大的藏传佛教黄教寺庙。长青春科尔为藏语译音，“长青”意为弥勒佛（即未来佛）“春科尔”意为法轮，“长青春科尔”意为弥勒佛法轮（标志着法轮常转、妙谛永存）。</p>            
+            </div>
+            <div class="col">
+                <img src="./images/gemu.webp" alt="gemu" onclick="showFullImage(event)">
+                <h3>格木自然生态保护区</h3>
+                <p>格木自然生态保护区，位于县城以东波密乡境内，由格木草原、扎哇拉山、充本拉山、罗措仁湖、格聂山等景区组成。该地区属于高山峡谷地带，年平均气温11.5℃至12.8℃。</p>            
+            </div>
+
+        </div>
+
+        <div id="popup">
+            <img id="fullImage" src="">
+          </div>
+      </section>
+
+    <section class="returnHP">
+        <div>
+            <a href="index.html">
+                <button type="button" class="button">
+                  回到首页
+                  </button>
+              </a>
+        </div>
+    </section>
+    
+      <script>
+        var navLinks = document.getElementById('navLinks');
+           
+        function showMenu() {
+          navLinks.style.right = '0';
+          navLinks.addEventListener('click',function(){
+            hideMenu();
+          })
+          
+        }
+        function hideMenu() {
+          navLinks.style.right = '-30%';
+        }
+    
+        function showFullImage(event) {
+          // 设置要全屏显示的图片src
+          document.getElementById('fullImage').src = event.target.src;
+          // 得到Y滚动条宽度
+          // innerWidth是以像素为单位的窗口的内部宽度。如果垂直滚动条存在，则这个属性将包括它的宽度
+          // offsetWidth 是一个只读属性，返回一个元素的布局宽度
+          var scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+          // body不能滚动      
+          document.body.style.overflowY = 'hidden';
+          // 防止页面在隐藏滚动条时闪动      
+          document.body.style.marginRight = scrollbarWidth + 'px';
+    
+          var popup = document.getElementById('popup');
+          popup.style.display = 'flex';
+          popup.style.animation = 'fadein 0.5s';
+          popup.onclick = function () {
+            popup.style.animation = 'fadeout 0.6s';
+            // 延时将display置为none，以让有时间动画。注意设置隐退的时间多一点会更平滑。
+            setTimeout(() => {
+              document.body.style.overflowY = 'auto';// body恢复滚动
+              document.body.style.marginRight = 0;          
+              popup.style.display = 'none';
+            }, 500);
+          }
+        }
+      </script>
+</body>
+</html>
